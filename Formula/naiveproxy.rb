@@ -6,7 +6,7 @@ class Naiveproxy < Formula
   homepage "https://github.com/klzgrad/naiveproxy"
   # download binary from upstream directly
   url "https://github.com/klzgrad/naiveproxy/releases/download/v107.0.5304.87-3/naiveproxy-v107.0.5304.87-3-mac-arm64.tar.xz"
-  version "v107.0.5304.87-3"
+  version "v107.0.5304.87-4"
   sha256 "e3635832900a31ac0f3263f86c334e18647bb7ae29ff288fc2265c1654bb7136"
   license "BSD 3-Clause"
 
@@ -46,6 +46,10 @@ class Naiveproxy < Formula
             <string>#{bin}/naive</string>
             <string>#{etc}/naiveproxy/config.json</string>
           </array>
+          <key>StandardErrorPath</key>
+          <string>/opt/homebrew/var/log/naive.log</string>
+          <key>StandardOutPath</key> 
+          <string>/opt/homebrew/var/log/naive.log</string>
         </dict>
       </plist>
     EOS

@@ -5,9 +5,9 @@ class Naiveproxy < Formula
   desc "naiveproxy client"
   homepage "https://github.com/klzgrad/naiveproxy"
   # download binary from upstream directly
-  url "https://github.com/klzgrad/naiveproxy/releases/download/v107.0.5304.87-3/naiveproxy-v107.0.5304.87-3-mac-arm64.tar.xz"
-  version "v107.0.5304.87-4"
-  sha256 "e3635832900a31ac0f3263f86c334e18647bb7ae29ff288fc2265c1654bb7136"
+  url "https://github.com/klzgrad/naiveproxy/releases/download/v116.0.5845.92-2/naiveproxy-v116.0.5845.92-2-mac-arm64.tar.xz"
+  version "v116.0.5845.92-2"
+  sha256 "9e4a554f77b9d67d6e6c9dda97ba5963d160b651d04c7d44b6660b6f53d81ff0"
   license "BSD 3-Clause"
 
   def install
@@ -26,8 +26,6 @@ class Naiveproxy < Formula
   test do
     system "#{bin}/naive", "--version"
   end
-
-  plist_options :manual => "naive #{HOMEBREW_PREFIX}/etc/naiveproxy/config.json"
 
   def plist
     <<~EOS

@@ -5,9 +5,9 @@ class Naiveproxy < Formula
   desc "naiveproxy client"
   homepage "https://github.com/klzgrad/naiveproxy"
   # download binary from upstream directly
-  url "https://github.com/klzgrad/naiveproxy/releases/download/v116.0.5845.92-2/naiveproxy-v116.0.5845.92-2-mac-arm64.tar.xz"
-  version "v116.0.5845.92-2"
-  sha256 "9e4a554f77b9d67d6e6c9dda97ba5963d160b651d04c7d44b6660b6f53d81ff0"
+  url "https://github.com/klzgrad/naiveproxy/releases/download/v122.0.6261.43-1/naiveproxy-v122.0.6261.43-1-mac-arm64.tar.xz"
+  version "v122.0.6261.43-1"
+  sha256 "b9875eddbf9c20bedd811d85e4fde76f48a9c47bb8d22d4eceb79ba6b0c91d73"
   license "BSD 3-Clause"
 
   def install
@@ -27,29 +27,11 @@ class Naiveproxy < Formula
     system "#{bin}/naive", "--version"
   end
 
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <true/>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{bin}/naive</string>
-            <string>#{etc}/naiveproxy/config.json</string>
-          </array>
-          <key>StandardErrorPath</key>
-          <string>/opt/homebrew/var/log/naive.log</string>
-          <key>StandardOutPath</key> 
-          <string>/opt/homebrew/var/log/naive.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"naive", etc/"naiveproxy/config.json"]
+    run_type :immediate
+    keep_alive true
+    log_path var/"log/naive.log"
+    error_log_path var/"log/naive.error.log"
   end
 end

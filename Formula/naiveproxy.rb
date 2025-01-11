@@ -5,9 +5,9 @@ class Naiveproxy < Formula
   desc "naiveproxy client"
   homepage "https://github.com/klzgrad/naiveproxy"
   # download binary from upstream directly
-  url "https://github.com/klzgrad/naiveproxy/releases/download/v122.0.6261.43-1/naiveproxy-v122.0.6261.43-1-mac-arm64.tar.xz"
-  version "v122.0.6261.43-1"
-  sha256 "b9875eddbf9c20bedd811d85e4fde76f48a9c47bb8d22d4eceb79ba6b0c91d73"
+  url "https://github.com/klzgrad/naiveproxy/releases/download/v131.0.6778.86-1/naiveproxy-v131.0.6778.86-1-mac-arm64.tar.xz"
+  version "v131.0.6778.86-1"
+  sha256 "831b47e56debb2718f93b27876f0d6b06741b3d98cfe001cfc58d5e9dc638390"
   license "BSD 3-Clause"
 
   def install
